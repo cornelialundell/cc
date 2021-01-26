@@ -23,7 +23,7 @@
     // UPDATE SCORE
     function updateScore() {
         document.querySelector('.score').innerHTML = "Score: " + score;   
-        if (score >= 30) {
+        if (score >= 50) {
             youWon();
             }     
     }

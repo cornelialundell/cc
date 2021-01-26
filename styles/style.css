@@ -52,17 +52,17 @@ body {
 
 
 .grid {
-    width: 580px;
-    height: 580px;
-    padding: 10px;
+    width: 560px;
+    height: 560px;
+    padding: 0px;
     display: flex;
     flex-wrap: wrap;
     background-color: #f7f7f7;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }
 
 .grid div {
@@ -71,7 +71,7 @@ body {
 }
 
 .score-container {
-    min-width: 300px;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
