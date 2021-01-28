@@ -6,12 +6,12 @@
     document.querySelector('.score').innerHTML = "Score: " + score;
 
     const candyColors = [
-        'url(./img/avocado.png)',
-        'url(./img/broccoli.png)',
-        'url(./img/orange.png)',
-        'url(./img/grapes.png)',
-        'url(./img/apple.png)',
-        'url(./img/banana.png)'
+        'url(./img/1.png)',
+        'url(./img/2.png)',
+        'url(./img/3.png)',
+        'url(./img/4.png)',
+        'url(./img/5.png)',
+        'url(./img/6.png)'
         
     ]
 
@@ -30,7 +30,8 @@
 
     function youWon() {
         // console.log("Du vann!!");
-        document.querySelector('.score').innerHTML = "Du vann!"; 
+        // document.querySelector('.score').innerHTML = "Du vann!"; 
+        alert("you won!")
         // console.log(score)
     }
 
@@ -109,16 +110,18 @@
         let validMove = validMoves.includes(squareIdBeingReplaced);
        // FRÅN GIT
        if (squareIdBeingReplaced && validMove) {
+        let scoredRowOfFive = checkRowForFive();
+        let scoredColumnOfFive = checkColumnForFive();
         let scoredRowOfFour = checkRowForFour();
         let scoredColumnOfFour = checkColumnForFour();
         let scoredRowOfThree = checkRowForThree();
         let scoredColumnOfThree = checkColumnForThree();
         //check if any combo was scored
-        if(scoredRowOfFour || scoredColumnOfFour || scoredRowOfThree || scoredColumnOfThree){
+        if(scoredRowOfFive || scoredColumnOfFive || scoredRowOfFour || scoredColumnOfFour || scoredRowOfThree || scoredColumnOfThree){
           squareIdBeingReplaced = null;
         }
         //if no combo scored swap back to original candies
-        else if(!scoredRowOfFour && !scoredColumnOfFour && !scoredRowOfThree && !scoredColumnOfThree){
+        else if(!scoredRowOfFive && !scoredColumnOfFive && !scoredRowOfFour && !scoredColumnOfFour && !scoredRowOfThree && !scoredColumnOfThree){
           squares[squareIdBeingDragged].style.backgroundImage = colorBeingDragged;
           squares[squareIdBeingReplaced].style.backgroundImage = colorBeingReplaced;
         }
@@ -143,7 +146,7 @@
     }
 
     // drop candies once some have been cleared
-
+console.log(squares)
     function moveDown() {
         for (i = 0; i <= 55; i++) {
             if (squares[i + width].style.backgroundImage === "") {
@@ -188,7 +191,7 @@
 
     // check for column of 5
     function checkColumnForFive() {
-        for (i = 0; i <= 47; i++) {
+        for (i = 0; i <= 31; i++) {
             let columnOfFive = [i, i + width, i + width*2, i + width*3, i + width*4];
             let decidedColor = squares[i].style.backgroundImage;
             const isBlank = squares[i].style.backgroundImage === "";
@@ -233,7 +236,7 @@
 
     // check for column of 4
     function checkColumnForFour() {
-        for (i = 0; i <= 47; i++) {
+        for (i = 0; i <= 39; i++) {
             let columnOfFour = [i, i + width, i + width*2, i + width*3];
             let decidedColor = squares[i].style.backgroundImage;
             const isBlank = squares[i].style.backgroundImage === "";
